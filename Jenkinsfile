@@ -23,7 +23,8 @@ pipeline {
             steps {
                 sh '''
                     echo "Updating deployment.yaml with new image tag..."
-                    sed -i "s|image:.*|image: ${APP_NAME}:${IMAGE_TAG}|g" deployment.yaml
+                    yq eval ".spec.template.spec.containers[0].image = \"${APP_NAME}:${IMAGE_TAG}\"" -i deployment.yaml
+
                     echo "Updated deployment.yaml content:"
                     cat deployment.yaml
                 '''
