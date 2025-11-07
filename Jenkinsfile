@@ -41,7 +41,7 @@ pipeline {
                         echo "No changes detected, skipping commit"
                     else
                         git commit -m "Updated Deployment Manifest"
-                        git push https://github.com/dineth28-max/redit-gitops main
+                        git push https://${GIT_USER}:${GIT_PASS}@github.com/dineth28-max/redit-gitops main
                     fi
                 '''
             }
