@@ -27,12 +27,12 @@ pipeline {
             steps {
                 sh """
                     git config --global user.name "dineth28-max"
-                    git config --global user.email "sandakalumdineth6@gmail.com"
+                    git config --global user.email "sandakelumdineth120@gmail.com"
                     git add deployment.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/dineth28-max/redit-gitops"
+                    sh "git push https://github.com/dineth28-max/redit-gitops main"
                 }
             }
          }
