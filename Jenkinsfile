@@ -1,13 +1,9 @@
 pipeline {
     agent any
-    
-     parameters {
-        string(name: 'IMAGE_TAG', defaultValue: '', description: 'Docker image tag from CI pipeline')
-    }
 
     environment {
         APP_NAME = "dineth123412/reddit-clone-app"
-        
+        IMAGE_TAG = "1.0.0-${BUILD_NUMBER}"
     }
 
     stages {
