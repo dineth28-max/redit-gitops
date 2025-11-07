@@ -37,13 +37,11 @@ pipeline {
                     git config --global user.email "sandakelumdineth120@gmail.com"
 
                     git add deployment.yaml
-                    if git diff --cached --quiet; then
-                        echo "No changes detected, skipping commit"
-                    else
-                        git commit -m "Updated Deployment Manifest"
-                        git push https://${GIT_USER}:${GIT_PASS}@github.com/dineth28-max/redit-gitops main
-                    fi
+                    git commit -m "Updated Deployment Manifest"
                 '''
+                withCredentials([gitUsernamePassword(credentialsId:'github', gitToolName: 'Default')]){
+                    sh "git push https://github.com/dineth28-max/redit-gitops main" 
+                }
             }
         }
     }
