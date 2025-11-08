@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: reddit-clone-deployment
+  labels:
+    app: reddit-clone-app
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: reddit-clone-app
-
-strategy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 0    
       maxSurge: 1 
-      
   template:
     metadata:
       labels:
