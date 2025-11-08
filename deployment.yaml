@@ -7,6 +7,13 @@ spec:
   selector:
     matchLabels:
       app: reddit-clone-app
+
+strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0    
+      maxSurge: 1 
+      
   template:
     metadata:
       labels:
@@ -15,6 +22,7 @@ spec:
       containers:
         - name: reddit-clone-app
           image: dineth123412/reddit-clone-app:1.0.0-25
+          imagePullPolicy: Always
           resources:
             limits:
               cpu: "1"
