@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: reddit-clone-app
-          image: dineth123412/reddit-clone-app:1.0.0-9
+          image: dineth123412/reddit-clone-app:latest
           imagePullPolicy: Always
           resources:
             limits:
