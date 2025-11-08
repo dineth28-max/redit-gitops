@@ -15,7 +15,6 @@ spec:
       containers:
         - name: reddit-clone-app
           image: dineth123412/reddit-clone-app:1.0.0-24
-          ## imagePullPolicy: Always
           resources:
             limits:
               cpu: "1"
